@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Įveskite duomenys rezervuaro talpos apskaičiavimui</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Rezervuaro talpą (l): </label>
+                        <input type="number" class="form-control" [(ngModel)]="talpa"   >
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Rezervuaro pildymo greitį (litrai/val.): </label>
+                        <input type="number" class="form-control" [(ngModel)]="greitis"   >
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Laiką kiek rezervuaras bus pildomas: </label>
+                        <input type="number" class="form-control" [(ngModel)]="laikas"   >
+                    </div>
+                    <button class="btn btn-success" (click)="skaiciuoti_rezervuaro_uzpildymoLygi()">Skaičiuoti % rezervuaro užpildymas </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">Rezultatai:</div>
+              <div class="card-body">
+                <div class="alert" *ngIf="uzpildyta_procentais !== 0">
+                  Rezervuaro užpildymo lygis: <strong>{{ uzpildyta_procentais }} %</strong
+                  ><br />
+                  {{ error_msg }}
+                </div>
+                <div *ngIf="uzpildyta_procentais === 0">
+                  Įveskite duomenis ir paspauskite skaičiuoti
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
